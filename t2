@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BabylonJS Documentation</title>
+    <base href="http://doc.babylonjs.com/tutorials/">
+    <link href="/img/favicon.ico" rel="shortcut icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet">
+    <link href="/css/libs/slideout.css" rel="stylesheet">
+    <link href="/css/libs/highlight/github.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.3/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<nav class=" slideout-menu" id="menu"><div class="searchbar-mobile searchbar"><form action="/search" method="get"><input name="q" type="text" placeholder="Search..."><button type="submit"><i class="fa fa-search"></i></button></form></div><a href="/"><i class="fa fa-home"></i>Home</a><a href="/whats-new"><i class="fa fa-file-text-o"></i>What's new?</a><a href="/generals"><i class="fa fa-book"></i>Generals</a><a href="/tutorials"><i class="fa fa-cogs"></i>Tutorials</a><a href="/overviews"><i class="fa fa-book"></i>Overviews</a><a href="/exporters"><i class="fa fa-rocket"></i>Exporters</a><a href="/extensions"><i class="fa fa-wrench"></i>Extensions</a><a href="/classes"><i class="fa fa-files-o"></i>Classes</a><a href="/playground"><i class="fa fa-cubes"></i>Playground</a><a href="http://www.babylonjs.com" target="_blank"><i class="fa fa-play"></i>babylonjs.com</a><a href="https://github.com/BabylonJS/Babylon.js" target="_blank"><i class="fa fa-github"></i>Github</a><a href="https://github.com/BabylonJS/Documentation" target="_blank"><i class="fa fa-code-fork"></i>Contribute</a><a href="http://www.html5gamedevs.com/forum/16-babylonjs" target="_blank"><i class="fa fa-html5"></i>Forum</a></nav><nav class="nav-main"><!-- Hamburger menu : displayed only in small screens--><i class="fa fa-bars" id="mobilemenu"></i><!-- this button only shows on mobile version of a "class" page--><div class="banner"><div class="menu"><div class="do-not-hover" id="home"><a href="/">Babylon.js | DOCUMENTATION</a></div><div class="item" id="whatsnew"><a href="/whats-new">What's new</a></div><div class="item" id="general"><a href="/generals">General</a></div><div class="item active" id="tutorials"><a href="/tutorials">Tutorials</a></div><div class="item" id="overview"><a href="/overviews">Overviews</a></div><div class="item" id="exporters"><a href="/exporters">Exporters</a></div><div class="item" id="extensions"><a href="/extensions">Extensions</a></div><div class="item" id="classes"><a href="/classes">Classes</a></div><div class="item" id="playground"><a href="/playground">Playground</a></div></div><div class="more"><div class="searchbar"><form action="/search" method="get"><input name="q" type="text" placeholder="Search..."><button type="submit"><i class="fa fa-search"></i></button></form></div></div></div></nav><div class=" slideout-panel" id="wrapper"><div class="statics-banner"><h1>tutorials</h1></div><div class="horizontal-separator"></div><div class="static-content"><h1>Creating a Basic Scene</h1><br><div class="contentTable"><div class="tocHeader"><span class="tocTitle"><i class="tocIcon fa fa-book"></i>Table of contents</span><span class="tocToggle"><i class="fa fa-arrow-up"></i></span></div><div class="tocContent"><ul>
+    <li><a href="#in-this-tutorial-we-are-going-to-create-a-basic-3d-scene-with-babylonjs">In this tutorial, we are going to create a basic 3D scene with Babylon.js.</a></li>
+    <li><a href="#the-html-part">The HTML Part</a></li>
+    <li><a href="#the-css-style-part">The CSS Style Part</a></li>
+    <li><a href="#the-javascript-external-includes-part-the-framework">The Javascript External Includes Part (the framework)</a><ul>
+        <li><a href="#got-troubles">Got Troubles?</a></li>
+        <li><a href="#moving-on">Moving On</a></li>
+        <li><a href="#next-step">Next step</a></li>
+    </ul>
+    </li>
+</ul>
+</div></div><div id="staticContent"><h3><a name="in-this-tutorial-we-are-going-to-create-a-basic-3d-scene-with-babylonjs" class="anchor" href="#in-this-tutorial-we-are-going-to-create-a-basic-3d-scene-with-babylonjs"></a>In this tutorial, we are going to create a basic 3D scene with Babylon.js.</h3><p><img alt="Babylon JS 01" src="http://urbanproductions.com/wingy/babylon/misc/tut01pic01.jpg"></p>
+<p><em>Two Basic Shapes in a Basic Scene</em></p>
+<p>Before you start, be sure you have a WebGL compatible browser (e.g.  Internet Explorer 11+, Firefox 4+, Google Chrome 9+, Opera 15+, etc.).</p>
+<h3><a name="the-html-part" class="anchor" href="#the-html-part"></a>The HTML Part</h3><p>First, create a basic HTML5 web page:</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">xmlns</span>=<span class="hljs-value">"http://www.w3.org/1999/xhtml"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">http-equiv</span>=<span class="hljs-value">"Content-Type"</span> <span class="hljs-attribute">content</span>=<span class="hljs-value">"text/html; charset=utf-8"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Babylon - Basic scene<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<h3><a name="the-css-style-part" class="anchor" href="#the-css-style-part"></a>The CSS Style Part</h3><p>Inside the <code>&lt;head&gt;</code> part, please add this CSS to view the canvas in maximum size:</p>
+<pre><code class="lang-css hljs">&lt;<span class="hljs-tag">style</span>&gt;
+    <span class="hljs-tag">html</span>, <span class="hljs-tag">body</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">overflow</span>:<span class="hljs-value"> hidden</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  }</span>
+
+    <span class="hljs-id">#renderCanvas</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">touch-action</span>:<span class="hljs-value"> none</span></span>;
+  }</span>
+    &lt;/<span class="hljs-tag">style</span>&gt;
+</code></pre>
+<h3><a name="the-javascript-external-includes-part-the-framework" class="anchor" href="#the-javascript-external-includes-part-the-framework"></a>The Javascript External Includes Part (the framework)</h3><p>Now we load our framework files.  After the CSS, (but still inside the <code>&lt;head&gt;</code> part), please add:</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"babylon.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"hand.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"cannon.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>  <span class="hljs-comment">&lt;!-- optional physics engine --&gt;</span>
+    <span class="hljs-comment">&lt;!-- &lt;script src="Oimo.js"&gt;&lt;/script&gt;  New physics engine --&gt;</span>
+</code></pre>
+<p>(if you don't already have those files, you can find them here: <a href="https://github.com/BabylonJS/Babylon.js">https://github.com/BabylonJS/Babylon.js</a>, and here: <a href="http://handjs.codeplex.com/">http://handjs.codeplex.com/</a>)</p>
+<p>Next, we go inside the <code>&lt;body&gt;</code> part of the web page... and add a HTML5 canvas element, which will be used to draw our scene.</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">canvas</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"renderCanvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">canvas</span>&gt;</span>
+</code></pre>
+<p>Now, we make the jump from HTML5 into Javascript.  Still inside the <code>&lt;body&gt;</code> part of the web page,  please add:</p>
+<pre><code class="lang-javascript hljs">&lt;script&gt;
+
+    <span class="hljs-comment">// Get the canvas element from our HTML above</span>
+    <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"renderCanvas"</span>);
+
+    <span class="hljs-comment">// Load the BABYLON 3D engine</span>
+    <span class="hljs-keyword">var</span> engine = <span class="hljs-keyword">new</span> BABYLON.Engine(canvas, <span class="hljs-literal">true</span>);
+</code></pre>
+<p>After this, you will add your scene creation code.  To keep your code compatible with the Babylon.js Playground, we recommend that you insert a 'createScene' function at this point.  Besides generating a Babylon Scene object, createScene() is where you will add your basic scene requirements:  One camera, one light, and one or more shapes/meshes.</p>
+<p>So now, add this entire createScene function to your web page:</p>
+<pre><code class="lang-javascript hljs">  <span class="hljs-comment">// This begins the creation of a function that we will 'call' just after it's built</span>
+    <span class="hljs-keyword">var</span> createScene = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-comment">// Now create a basic Babylon Scene object </span>
+    <span class="hljs-keyword">var</span> scene = <span class="hljs-keyword">new</span> BABYLON.Scene(engine);
+
+    <span class="hljs-comment">// Change the scene background color to green.</span>
+    scene.clearColor = <span class="hljs-keyword">new</span> BABYLON.Color3(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">// This creates and positions a free camera</span>
+    <span class="hljs-keyword">var</span> camera = <span class="hljs-keyword">new</span> BABYLON.FreeCamera(<span class="hljs-string">"camera1"</span>, <span class="hljs-keyword">new</span> BABYLON.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, -<span class="hljs-number">10</span>), scene);
+
+    <span class="hljs-comment">// This targets the camera to scene origin</span>
+    camera.setTarget(BABYLON.Vector3.Zero());
+
+    <span class="hljs-comment">// This attaches the camera to the canvas</span>
+    camera.attachControl(canvas, <span class="hljs-literal">false</span>);
+
+    <span class="hljs-comment">// This creates a light, aiming 0,1,0 - to the sky.</span>
+    <span class="hljs-keyword">var</span> light = <span class="hljs-keyword">new</span> BABYLON.HemisphericLight(<span class="hljs-string">"light1"</span>, <span class="hljs-keyword">new</span> BABYLON.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>), scene);
+
+    <span class="hljs-comment">// Dim the light a small amount</span>
+    light.intensity = .<span class="hljs-number">5</span>;
+
+    <span class="hljs-comment">// Let's try our built-in 'sphere' shape. Params: name, subdivisions, size, scene</span>
+    <span class="hljs-keyword">var</span> sphere = BABYLON.Mesh.CreateSphere(<span class="hljs-string">"sphere1"</span>, <span class="hljs-number">16</span>, <span class="hljs-number">2</span>, scene);
+
+    <span class="hljs-comment">// Move the sphere upward 1/2 its height</span>
+    sphere.position.y = <span class="hljs-number">1</span>;
+
+    <span class="hljs-comment">// Let's try our built-in 'ground' shape.  Params: name, width, depth, subdivisions, scene</span>
+    <span class="hljs-keyword">var</span> ground = BABYLON.Mesh.CreateGround(<span class="hljs-string">"ground1"</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, scene);
+
+    <span class="hljs-comment">// Leave this function</span>
+    <span class="hljs-keyword">return</span> scene;
+
+    };  <span class="hljs-comment">// End of createScene function</span>
+</code></pre>
+<p>Yes, that is quite a function, but do not let it scare you.  You will learn more about the parameters and properties for lights, cameras, and built-in shapes... in the tutorials to come.  The main thing to know is that our createScene function has all requirements complete.  It contains:  </p>
+<ul>
+    <li>a Babylon Scene object</li>
+    <li>a camera that has been attached</li>
+    <li>a light that has been aimed</li>
+    <li>a sphere that has been placed at position 0,1,0 (we moved it upward +y)</li>
+    <li>a ground plane that has been placed at position 0,0,0 (default position)</li>
+</ul>
+<p>There are three more things to add to your web page.  First, a 'call' to the createScene function that we just completed.  Add this:</p>
+<pre><code class="lang-javascript hljs">  <span class="hljs-comment">// Now, call the createScene function that you just finished creating</span>
+    <span class="hljs-keyword">var</span> scene = createScene();
+</code></pre>
+<p>Then, the all-important rendering loop.  Add this:</p>
+<pre><code class="lang-javascript hljs">  <span class="hljs-comment">// Register a render loop to repeatedly render the scene</span>
+    engine.runRenderLoop(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    scene.render();
+    });
+</code></pre>
+<p>And last, an optional but handy canvas/window resize event handler.  Add this:</p>
+<pre><code class="lang-javascript hljs">  <span class="hljs-comment">// Watch for browser/canvas resize events</span>
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"resize"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    engine.resize();
+    });
+</code></pre>
+<p>There.  All the Javascript inserting is done.  Make sure you close the script, body, and html elements. The last three lines of your HTML5 web page... should be:</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<p>You are done! Save your file (in the same folder as babylon.js, hand.js, and cannon.js) and browse it with your WebGL-ready browser.  You should see your new scene displayed in 3D on its canvas.</p>
+<p>A near-exact duplicate of the createScene function used in this tutorial... can be seen <a href="http://www.babylonjs.com/playground/#1GM4YQ"><strong>RIGHT HERE</strong></a> at the Babylon.js Playground.  You will also see the scene render LIVE, ONLINE!  Use the playground's 'Get .zip' choice if you want to download the entire index.html file used in this tutorial.</p>
+<h2><a name="got-troubles" class="anchor" href="#got-troubles"></a>Got Troubles?</h2><p>Here is what the entire web page should look like:</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Babylon - Basic scene<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+      <span class="hljs-tag">html</span>, <span class="hljs-tag">body</span> <span class="hljs-rules">{
+         <span class="hljs-rule"><span class="hljs-attribute">overflow</span>:<span class="hljs-value"> hidden</span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+      }</span>
+      <span class="hljs-id">#renderCanvas</span> <span class="hljs-rules">{
+         <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">touch-action</span>:<span class="hljs-value"> none</span></span>;
+      }</span>
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"babylon.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"hand.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"cannon.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span> <span class="hljs-comment">&lt;!-- optional physics engine --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">canvas</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"renderCanvas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">canvas</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+      <span class="hljs-comment">// Get the canvas element from our HTML below</span>
+      <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#renderCanvas"</span>);
+      <span class="hljs-comment">// Load the BABYLON 3D engine</span>
+      <span class="hljs-keyword">var</span> engine = <span class="hljs-keyword">new</span> BABYLON.Engine(canvas, <span class="hljs-literal">true</span>);
+      <span class="hljs-comment">// -------------------------------------------------------------</span>
+      <span class="hljs-comment">// Here begins a function that we will 'call' just after it's built</span>
+      <span class="hljs-keyword">var</span> createScene = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+         <span class="hljs-comment">// Now create a basic Babylon Scene object</span>
+         <span class="hljs-keyword">var</span> scene = <span class="hljs-keyword">new</span> BABYLON.Scene(engine);
+         <span class="hljs-comment">// Change the scene background color to green.</span>
+         scene.clearColor = <span class="hljs-keyword">new</span> BABYLON.Color3(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+         <span class="hljs-comment">// This creates and positions a free camera</span>
+         <span class="hljs-keyword">var</span> camera = <span class="hljs-keyword">new</span> BABYLON.FreeCamera(<span class="hljs-string">"camera1"</span>, <span class="hljs-keyword">new</span> BABYLON.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, -<span class="hljs-number">10</span>), scene);
+         <span class="hljs-comment">// This targets the camera to scene origin</span>
+         camera.setTarget(BABYLON.Vector3.Zero());
+         <span class="hljs-comment">// This attaches the camera to the canvas</span>
+         camera.attachControl(canvas, <span class="hljs-literal">false</span>);
+         <span class="hljs-comment">// This creates a light, aiming 0,1,0 - to the sky.</span>
+         <span class="hljs-keyword">var</span> light = <span class="hljs-keyword">new</span> BABYLON.HemisphericLight(<span class="hljs-string">"light1"</span>, <span class="hljs-keyword">new</span> BABYLON.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>), scene);
+         <span class="hljs-comment">// Dim the light a small amount</span>
+         light.intensity = .<span class="hljs-number">5</span>;
+         <span class="hljs-comment">// Let's try our built-in 'sphere' shape. Params: name, subdivisions, size, scene</span>
+         <span class="hljs-keyword">var</span> sphere = BABYLON.Mesh.CreateSphere(<span class="hljs-string">"sphere1"</span>, <span class="hljs-number">16</span>, <span class="hljs-number">2</span>, scene);
+         <span class="hljs-comment">// Move the sphere upward 1/2 its height</span>
+         sphere.position.y = <span class="hljs-number">1</span>;
+         <span class="hljs-comment">// Let's try our built-in 'ground' shape. Params: name, width, depth, subdivisions, scene</span>
+         <span class="hljs-keyword">var</span> ground = BABYLON.Mesh.CreateGround(<span class="hljs-string">"ground1"</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, scene);
+         <span class="hljs-comment">// Leave this function</span>
+         <span class="hljs-keyword">return</span> scene;
+      }; <span class="hljs-comment">// End of createScene function</span>
+      <span class="hljs-comment">// -------------------------------------------------------------</span>
+      <span class="hljs-comment">// Now, call the createScene function that you just finished creating</span>
+      <span class="hljs-keyword">var</span> scene = createScene();
+      <span class="hljs-comment">// Register a render loop to repeatedly render the scene</span>
+      engine.runRenderLoop(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+         scene.render();
+      });
+      <span class="hljs-comment">// Watch for browser/canvas resize events</span>
+      <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"resize"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+         engine.resize();
+      });
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<h2><a name="moving-on" class="anchor" href="#moving-on"></a>Moving On</h2><p>From this point forward in the Basic Series tutorials, I will mostly talk about things that are contained in the createScene function (the part between the dashed lines). I will assume that you already know how to insert a createScene function into a Babylon.js HTML5 scene document (like the one above).</p>
+<p>Try to memorize this web page layout, and see how the createScene function is at the heart of it. After you have spent some time using the Babylon.js Playground, you will see how createScene() is portable, and can be easily copied and pasted TO and FROM the playground editor window. This will allow others to help you with problems, and will also allow you to help others with their problems.</p>
+<h2><a name="next-step" class="anchor" href="#next-step"></a>Next step</h2><hr>
+<p>Now you are ready to go further and learn how to create more elements like spheres, cylinders, boxes, etc.</p>
+<p>Next in the Playpen Series - <a href="http://doc.babylonjs.com/tutorials/Discover_Basic_Elements"><strong>Basic elements</strong></a></p>
+</div></div></div><footer class="footer"><div class="footer-item"><a href="http://www.html5gamedevs.com/forum/16-babylonjs" target="_blank"><i class="fa fa-html5"></i>    Forum</a></div><div class="footer-item"><a href="https://github.com/BabylonJS/Babylon.js" target="_blank"><i class="fa fa-github"></i>    Github</a></div><div class="footer-item"><a href="https://github.com/BabylonJS/Documentation" target="_blank"><i class="fa fa-code-fork"></i>    Contribute</a></div></footer>
+</body></html>
+
+<div id="div_hidden" style="display: none">
+    <div id="div_mod1">
+        <div class="div_inmod1" style="width: 100%;height: 100%;margin: 0px;border: 1px solid;padding: 0px;float: left;line-height: 20px" >
+            <button onclick="ExportHtml()" style="margin-left: auto;margin-right: auto;float: left;position: relative;left: 10px">导出网页</button>
+        </div>
+    </div>
+    <div id="div_mod2">
+        <div class="div_inmod2" style="width: 100%;height: 100%;margin: 0px;border: 1px solid;padding: 0px;float: left;line-height: 20px">
+            <div class="div_inmod_head" style="width: 100%;height: 20px;background-color: #E0ECFF;margin:0;border: 0;padding:0;border-bottom: 1px solid">
+                <BUTTON title="点击关闭对话框" style='float:right;aposition:static; width: 14px;height: 14px; margin: 0;margin-top: 2px;margin-right:2px;padding: 0;background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAABbSURBVDhPY3zw5v9/BjIAE5QmGVBHY3jXMTBGB9jEsdqIrAibQSCAETi4FK4ss4KyIADDRnQFIIBNjHqhis2p2MQwQhUGQM5DdiK6ZqxORdaAzX8gMGSSHAMDANOtJxQi19d5AAAAAElFTkSuQmCC") no-repeat;border: 0px;vertical-align:top' onclick="DeleteWindow();" type=submit></BUTTON>
+                <BUTTON title="点击确定修改" style='float:right;aposition:static; width: 14px;height: 14px; margin: 0;margin-top: 2px;margin-right:2px;padding: 0;background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMFSURBVHjaYvz//z8DJQAgAINxcAQgCANA8MgQlRkefrUDLZM6LBQSAd3XxlxOZofYNtQTWhMWOqYVxHjVsdWY0gj/x+Iw7NqP/KByfwKIiSTrQI79/TtBXVlqV6S1hZUAK98/gAAi2gCgV0X/MTHMdrfQm1/r6Shz8drzfw/uvEoECCCW/wz/FYHB8A2o5iUOnQz//vwz4xbjnJ/soqUVoKHM0LH7PMOx0w8yGbmZNgEEEIuQCO/VX7//3fz8+I8PGwPDUxS9//6z/vj7J1VOTbCnwseY00ZcgKF853mGXQcf1DOxs8xiYPzHABBATHzM3J99HBQNuAXZVv7+808IrJMRGE5//2v85WBY5uaoNHVqmAenlbgkQ+Oeawy79j7vZ/vP0sTABIk9gABienbn+0wJBjGG7EAra0YuhnX//jEw/vn9z5VXnGVXarBBSIOrO4M4Dw9D78FLDNu2v1zF/pu5nAEp5AACAEEAvv8DBjAZ5u70+2RxSUoEBw3+H8fX4mUiKg1hdlc6FEoiMwD4/vMAn8nQAK6t6bgA+v1dAAf89/wE+gD9BvkA/wf8AAIAQQC+/wMQMCHw7e73HRUcCDNXMDwBCBn3DlM2LgUqDyMA7vzpALHU0wCxquzRAfIBWQUFAuwD/QQABf0GAAb7CQAG+QoAAgBBAL7/AxAvIv/99AX78gHvWy8nFwEwFiQAA/8DAO/96gC/3dYArqXx4P/tAU0GBwHgBfwGAAb8CAAI+QwACPYPAAn0EAACiFlIQ5uB9Q/H4y+f/1nxq35V4mFnYfj0/xXD6Sf3GLYu/f7m91OWACaO31f+M/+DeJoRGPEgzPQPjAECiInjFzsD5z+2n4zP+LaePv2e4TnjHYaLr+4z7Fz668uv21wxzMwMp/ElMIAAYmL+y84Awhz/2Be9PsP98MTt5wxHVzH/+n5ZIBuoeSehFAoQQMwSakbAKGVmYGJk/M70jUPszW0eix/XeesYmP9M+8/2h+Ef82+G/yzADAT2AiOGAQABxEhpdgYIMABQrSEzlY7wIwAAAABJRU5ErkJggg==") no-repeat;border: 0px;vertical-align:top' onclick="ChangeValue();DeleteWindow();" type=submit></BUTTON>
+                <BUTTON title="点击恢复上一历史状态" style='float:right;aposition:static; width: 14px;height: 14px; margin: 0;margin-top: 2px;margin-right:2px;padding: 0;background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMiSURBVHjaYvz//z8DJQAggFhABCNjD5D8A8T/gBygECszA8OvvwwMTP8txJUFZv3lYuF4++GnOyMTw/3///4x/Aep42dj+H8xgwEggJiwGvvrryiQ7PYL1Ty6YYW/rp2ppPT/t9+E/v34zfD/z18UpQABxIKh+f9fJxFR3gmdXXa6ibE6DIzMTAy/fv39wfDzz1cGLhaQc4FqEMoBAgjJgP9AmX/Fzi6qTTMmO3PyKIowLLn+nyFI5Q8D86+/PGwsTC1MHMwfGFiYWBhYGFh/MTHeBWqqAwggRlAgMjJ2gdzdm5FuWjR1kiPD+fdsDG2HGRgEWX4xzPH5x3Dj1nuGZ6+/M7CxAe0Aop9Au1rnXWTYN9ufESCAoC74W5qXa140cZILw6qbjAxLLvxn+An0LzvLd4apB38zcHGwA73CwvDt408GdsY/DNH2ogzKktzgwAAIILABpsZS9e3tdgwrbjEyLDj7n4Hj/y8G1t8/GF58+M4w5+53hh9ffzD8+Pyd4dPHrwwCbH8YrFU4GP7+/Qe2GiAASWSUAgAIg1CJdf+71tYWLUrKb32gPoDUIsLrdAJOM04gnSENjGaY9iHWlTU2cuUfk7oCCGzAyVNPuhsbj9W0ttoxfH3/h2HR0a8M/37+YhAAhoGXJisDO9D5//9wMHz5zMHAyfyPQUyAjYEZop8BIIDABvz7x9TY1n5ECphGktrbrBik2H8xVK14x8DP+4+hMUCW4eWbnwyvP/5gYGbiAcbgf4a7z78xPH79nRmkFyCAoIHI9Ifh/7+0jo4jr+7ce1c8baId67JsKYbFu54zfPzxn6Gi7czvnVvuHmQU5fwMjELm/8wMbD9YGR+AdAIEEFI6YAKG6v/KNauunT975mVbf7+tcneiHMP3n/8Yvv/++/nrtz85DN9+32QA2csCdD8PRCtAAGFJysyr7t/74BoYun1uWt4RhqcvvzOwc7KwAz3Nw/D3PzgdQMMPDAACCJqQuiEZCZxGgbKsQNNBaf7/f28FXZGpP9mZGF+8/OrMyMR45z/Qyv8sQHXcwIA9n8EAEECMlGZngAADALCEL2yqmxZQAAAAAElFTkSuQmCC") no-repeat;border: 0px;vertical-align:top' onclick="ReloadValue();DeleteWindow();" type=submit></BUTTON>
+            </div>
+            <textarea class="div_inmod2_content" style="width: 100%;height: 98px;overflow-x: hidden;margin:0;border: 0;padding:0" onchange=""></textarea>
+        </div>
+    </div>
+</div>
+<script>function listenEvent(eventTarget,eventType,eventHandler){if(eventTarget.addEventListener){eventTarget.addEventListener(eventType,eventHandler,false)}else{if(eventTarget.attachEvent){eventType="on"+eventType;eventTarget.attachEvent(eventType,eventHandler)}else{eventTarget["on"+eventType]=eventHandler}}}function stopListening(eventTarget,eventType,eventHandler){if(eventTarget.removeEventListener){eventTarget.removeEventListener(eventType,eventHandler,false)}else{if(eventTarget.detachEvent){eventType="on"+eventType;eventTarget.detachEvent(eventType,eventHandler)}else{eventTarget["on"+eventType]=null}}}function cancelEvent(event){if(event.preventDefault){event.preventDefault()}else{event.returnValue=false}}function cancelPropagation(event){if(event.stopPropagation){event.stopPropagation()}else{event.cancelBubble=true}}function processClick(evt){evt=evt||window.event;var x=0;var y=0;if(evt.pageX){x=evt.pageX;y=evt.pageY}else{if(evt.clientX){var offsetX=0;var offsetY=0;if(document.documentElement.scrollLeft){offsetX=document.documentElement.scrollLeft;offsetY=document.documentElement.scrollTop}else{if(document.body){offsetX=document.body.scrollLeft;offsetY=document.body.scrollTop}}x=evt.clientX+offsetX;y=evt.clientY+offsetY}}var point=new Object();point.x=x;point.y=y;return point}function processKeyStroke(evt){evt=evt?evt:window.event;var key=evt.charCode?evt.charCode:evt.keyCode;return key}function con_getElementsByClassName(className,root,tagName){if(root){root=typeof root=="string"?document.getElementById(root):root}else{root=document.body}tagName=tagName||"*";if(document.getElementsByClassName){return root.getElementsByClassName(className)}else{var tag=root.getElementsByTagName(tagName);var tagAll=[];for(var i=0;i<tag.length;i++){for(var j=0,n=tag[i].className.split(" ");j<n.length;j++){if(n[j]==className){tagAll.push(tag[i]);break}}}return tagAll}}String.prototype.Trim=function(){return this.replace(/(^\s*)|(\s*$)/g,"")};function onlyNum(event){event=event||window.event;if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==8)||(event.keyCode==110)||(event.keyCode==190))){cancelEvent(event)}}function regInput(obj,reg,inputStr){var docSel=document.selection.createRange();if(docSel.parentElement().tagName!="INPUT"){return false}oSel=docSel.duplicate();oSel.text="";var srcRange=obj.createTextRange();oSel.setEndPoint("StartToStart",srcRange);var str=oSel.text+inputStr+srcRange.text.substr(oSel.text.length);return reg.test(str)};</script><!--弹出用来修改网页的层-->
+<script>function DownloadText(filename,content){if(document.createElement("a").download!=null){var aLink=document.createElement("a");aLink.href="data:text/plain;charset=UTF-8,"+content;aLink.download=filename;var evt=document.createEvent("HTMLEvents");evt.initEvent("click",false,false);aLink.dispatchEvent(evt)}else{var Folder=BrowseFolder();if(Folder=="false"){alert("保存失败！")}else{var fso,tf;fso=new ActiveXObject("Scripting.FileSystemObject");tf=fso.CreateTextFile(Folder+filename+".txt",true,true);tf.write(content);tf.Close();alert("保存完毕！")}}}function BrowseFolder(){try{var Message="请选择保存文件夹";var Shell=new ActiveXObject("Shell.Application");var Folder=Shell.BrowseForFolder(0,Message,64,17);if(Folder!=null){Folder=Folder.items();Folder=Folder.item();Folder=Folder.Path;if(Folder.charAt(Folder.length-1)!="\\"){Folder=Folder+"\\"}return Folder}}catch(e){return"false";alert(e.message)}}function UploadText(filename,evt,recallfunc){if(typeof FileReader=="undefined"){var fso,f1,ts,s;var as=[];var ForReading=1;fso=new ActiveXObject("Scripting.FileSystemObject");if(fso!=null){ts=fso.OpenTextFile(filename,ForReading,false,-1);s="";while(!ts.atEndOfLine){as.push(ts.ReadLine())}s=as.join("");ts.Close();eval(recallfunc)}}else{var files=evt.target.files;var s="";for(var i=0,f;f=files[i];i++){var reader=new FileReader();reader.readAsText(f);reader.onload=function(e){s=[e.target.result].join("");eval(recallfunc)}}}}function MakeDateStr(){var dt=new Date();var str_date=dt.getFullYear()+""+(dt.getMonth()+1)+""+dt.getDate()+"_"+dt.getHours()+"_"+dt.getMinutes()+"_"+dt.getSeconds();return str_date}function MakeDateStr2(){var dt=new Date();var str_date=dt.getFullYear()+"年"+(dt.getMonth()+1)+"月"+dt.getDate()+"日"+dt.getHours()+":"+dt.getMinutes()+":"+dt.getSeconds();return str_date}function subDate(dt1,dt2){var days=(dt2.getTime()-dt1.getTime())/(86400000);return days}function MakeExcel2(str_title,arr_th,th_start,td_start,arr_td,row_start){var arr_thl=arr_th.length;var arr_tdl=arr_td.length;try{var xls=new ActiveXObject("Excel.Application")}catch(e){alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX 控件”，您的浏览器须允许执行控件。");return""}xls.visible=true;var xlBook=xls.Workbooks.Add;var xlsheet=xlBook.Worksheets(1);xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,arr_thl-th_start)).mergecells=true;xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,arr_thl-th_start)).value=str_title;xlsheet.Rows(1).RowHeight=25;xlsheet.Rows(1).Font.Size=14;xlsheet.Rows(1).Font.Name="黑体";for(var i=0;i<arr_thl;i++){xlsheet.Columns(i+1).NumberFormatLocal="@";xlsheet.Cells(2,i+1).Value=arr_th[i+th_start]}for(var i=row_start;i<arr_tdl;i++){var k=0;for(var j=0;j<arr_thl;j++){if(arr_td[2][j+td_start+k]=="str"){xlsheet.Cells(i-1,j+1).Value=arr_td[i][j+td_start+k]}else{if(arr_td[2][j+td_start+k]=="none"){j--;k++}else{if(arr_td[2][j+td_start+k][0]=="switch"){for(var a=1;a<arr_td[2][j+td_start+k].length;a++){if(arr_td[2][j+td_start+k][a][0]==arr_td[i][j+td_start+k]){xlsheet.Cells(i-1,j+1).Value=arr_td[2][j+td_start+k][a][1];break}else{if(a==arr_td[2][j+td_start+k].length-1){xlsheet.Cells(i-1,j+1).Value=arr_td[i][j+td_start+k]}}}}else{xlsheet.Cells(i-1,j+1).Value=arr_td[i][j+td_start+k]}}}}}xlsheet.Columns.AutoFit;xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).HorizontalAlignment=-4108;xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,arr_thl-th_start)).VerticalAlignment=-4108;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Font.Size=10;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(3).Weight=2;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(4).Weight=2;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(1).Weight=2;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(2).Weight=2;xls.UserControl=true;xls=null;xlBook=null;xlsheet=null}function HtmlTOExcel(str_title,id_tab,arr_thl,arr_tdl){try{var xls=new ActiveXObject("Excel.Application")}catch(e){alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX 控件”，您的浏览器须允许执行控件。");return""}xls.visible=true;var xlBook=xls.Workbooks.Add;var xlsheet=xlBook.Worksheets(1);xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,arr_thl)).mergecells=true;xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,arr_thl)).value=str_title;xlsheet.Rows(1).RowHeight=25;xlsheet.Rows(1).Font.Size=14;xlsheet.Rows(1).Font.Name="黑体";var datatab=document.getElementById("id_tab");for(var i=0;i<arr_tdl;i++){var tds=datatab.childNodes[0].childNodes[i].childNodes;for(var j=0;j<tds.length;j++){if(parseInt(tds[j].colSpan)>1){xlsheet.Range(xlsheet.Cells(i+2,j+1),xlsheet.Cells(i+2,j+parseInt(tds[j].colSpan))).mergecells=true;if(tds[j][0]){xlsheet.Range(xlsheet.Cells(i+2,j+1),xlsheet.Cells(i+2,j+parseInt(tds[j].colSpan))).value=j+=parseInt(tds[j].colSpan)-1}}}}xlsheet.Columns.AutoFit;xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).HorizontalAlignment=-4108;xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,arr_thl-th_start)).VerticalAlignment=-4108;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Font.Size=10;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(3).Weight=2;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(4).Weight=2;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(1).Weight=2;xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(arr_tdl-row_start+2,arr_thl-th_start)).Borders(2).Weight=2;xls.UserControl=true;xls=null;xlBook=null;xlsheet=null}function ImportXLSX(fileName){var arr_xlsx=[];var arr_temp=[];var objCon=new ActiveXObject("ADODB.Connection");objCon.Provider="Microsoft.ACE.OLEDB.12.0";objCon.ConnectionString="Data Source="+fileName+";Extended Properties=Excel 12.0;";objCon.CursorLocation=1;objCon.Open;var strQuery;var strSheetName="Sheet1$";var rsTemp=new ActiveXObject("ADODB.Recordset");rsTemp=objCon.OpenSchema(20);if(!rsTemp.EOF){strSheetName=rsTemp.Fields("Table_Name").Value}rsTemp=null;rsExcel=new ActiveXObject("ADODB.Recordset");strQuery="SELECT * FROM ["+strSheetName+"]";rsExcel.ActiveConnection=objCon;rsExcel.Open(strQuery);while(!rsExcel.EOF){arr_temp=[];for(i=0;i<rsExcel.Fields.Count;++i){var str_val=rsExcel.Fields(i).value!=null?rsExcel.Fields(i).value:"null";arr_temp.push(str_val)}arr_xlsx.push(arr_temp);rsExcel.MoveNext}objCon.Close;objCon=null;rsExcel=null;return arr_xlsx}var GB2312UnicodeConverter={ToUnicode:function(str){return escape(str).toLocaleLowerCase().replace(/%u/gi,"\\u")},ToGB2312:function(str){return unescape(str.replace(/\\u/gi,"%u"))}};</script>
+<script>function window_size(){var wdth=0;var hth=0;if(!window.innerWidth){wdth=(document.documentElement.clientWidth?document.documentElement.clientWidth:document.body.clientWidth);hth=(document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight)}else{wdth=window.innerWidth;hth=window.innerHeight}return{width:wdth,height:hth}}function elem_size(id){var wdth=0;var hth=0;var rect=document.getElementById(id).getBoundingClientRect();if(rect.height){wdth=rect.width;hth=rect.height}else{wdth=rect.right-rect.left;hth=rect.bottom-rect.top}return{width:wdth,height:hth}}function compPos(id){var rect=document.getElementById(id).getBoundingClientRect();var height;if(rect.height){height=rect.height}else{height=rect.bottom-rect.top}var top=rect.top+height+0;return{left:rect.left,top:top}}function compPos2(obj){var rect=obj.getBoundingClientRect();var height;if(rect.height){height=rect.height}else{height=rect.bottom-rect.top}var top=rect.top+height+0;return{left:rect.left,top:top}}function Open_div(sid,did,width,height,x,y,inid,isms){if(!width){width=120}if(!height){height=40}if(!x){x=0}if(!y){y=0}var div=document.createElement("div");div.id=did;if(sid==""||sid==null){var pos={left:0,top:0}}else{if(typeof sid=="string"){var pos=compPos(sid)}else{var pos=compPos2(sid)}}div.style.width=width+"px";div.style.height=height+"px";div.style.position="absolute";div.style.zIndex=350;div.style.backgroundColor="#ffffff";div.style.imeMode="disabled";if(isms==1){var div2=document.createElement("div");div2.className="div_mask";div2.id="div_mask";document.body.appendChild(div2)}if(inid==""||inid==null){div.style.top=pos.top+y+document.documentElement.scrollTop+"px";div.style.left=pos.left+x+document.documentElement.scrollLeft+"px";document.body.appendChild(div)}else{if(inid.tagName==undefined){var inobj=document.getElementById(inid)}else{var inobj=inid}var inposx=inobj.getBoundingClientRect().left;var inposy=inobj.getBoundingClientRect().top;div.style.top=pos.top+y-inposy+inobj.scrollTop+"px";div.style.left=pos.left+x-inposx+inobj.scrollLeft+"px";inobj.appendChild(div)}}function delete_div(id){var obj=document.getElementById(id);if(obj){obj.parentNode.removeChild(obj)}}function clean_div(id){var obj=document.getElementById(id);if(obj){obj.innerHTML=""}}function set_div(id,content){var obj=document.getElementById(id);if(obj){obj.innerHTML=content}}function SetSelf(str){var evt=evt||window.event;cancelPropagation(evt);var obj=evt.currentTarget?evt.currentTarget:evt.srcElement;obj.innerHTML=str}function EnableClass(classname){var objs=con_getElementsByClassName(classname);var len=objs.length;for(var i=0;i<len;i++){objs[i].disabled="false"}}function DisableClass(classname){var objs=con_getElementsByClassName(classname);var len=objs.length;for(var i=0;i<len;i++){objs[i].disabled="true"}}function drag(oDrag){var disX=dixY=0;oDrag.onmousedown=function(event){var event=event||window.event;disX=event.clientX-this.offsetLeft;disY=event.clientY-this.offsetTop;var oTemp=this.cloneNode(true);document.body.appendChild(oTemp);document.onmousemove=function(event){var event=event||window.event;var iL=event.clientX-disX;var iT=event.clientY-disY;var maxL=document.documentElement.clientWidth-oDrag.offsetWidth;var maxT=document.documentElement.clientHeight-oDrag.offsetHeight;iL<=0&&(iL=0);iT<=0&&(iT=0);iL>=maxL&&(iL=maxL);iT>=maxT&&(iT=maxT);oTemp.style.zIndex=zIndex++;oTemp.style.opacity="0.5";oTemp.style.filter="alpha(opacity=50)";oTemp.style.left=iL+"px";oTemp.style.top=iT+"px";return false};document.onmouseup=function(){document.onmousemove=null;document.onmouseup=null;var arr={left:oTemp.offsetLeft,top:oTemp.offsetTop};oDrag.style.zIndex=oTemp.style.zIndex;oAnimate(oDrag,arr,300,function(){document.body.removeChild(oTemp)});oDrag.releaseCapture&&oDrag.releaseCapture()};this.setCapture&&this.setCapture();return false}}function oAnimate(obj,params,time,handler){var node=typeof obj=="string"?$(obj):obj;var _style=node.currentStyle?node.currentStyle:window.getComputedStyle(node,null);var handleFlag=true;for(var p in params){(function(){var n=p;if(n=="left"||n=="top"){var _old=parseInt(_style[n]);var _new=parseInt(params[n]);var _length=0,_tt=10;if(!isNaN(_old)){var count=_old;var length=_old<=_new?(_new-_old):(_old-_new);var speed=length/time*_tt;var flag=0;var anim=setInterval(function(){node.style[n]=count+"px";count=_old<=_new?count+speed:count-speed;flag+=_tt;if(flag>=time){node.style[n]=_new+"px";clearInterval(anim);if(handleFlag){handler();handleFlag=false}}},_tt)}}})()}};</script>
+<script>
+    var bbl_current_obj;
+    var bbl_style_temp;
+    var bbl_int_count2=0;
+    var bbl_arr_history=[];
+    window.onload=function()
+    {
+        Open_div("","div_ExportHtml",100,80,0,0);
+        var div_ExportHtml=document.getElementById("div_ExportHtml");
+        div_ExportHtml.innerHTML=document.getElementById("div_mod1").innerHTML;
+        div_ExportHtml.style.position="fixed";
+        div_ExportHtml.style.right="0px";
+        div_ExportHtml.style.top="300px";
+        //div_ExportHtml.style.float="right";
+        var int_count=0;//为每一个可调整标签设置不同的tid属性
+        var arr_tags=["p","a","span","h1","h2","h3","h4","h5","li","td","th","code","strong","em"];
+        var leng=arr_tags.length;
+        for(var i=0;i<leng;i++)//对于每一种标签
+        {
+            var objs=document.getElementsByTagName(arr_tags[i]);
+            var leng2=objs.length;
+            for(var j=0;j<leng2;j++)//对于每一个标签
+            {
+                var children=objs[j].childNodes;
+                var leng3=children.length;
+                for(var k=0;k<leng3;k++)//寻找文本节点
+                {
+                    if(children[k].nodeName=="#text"&&children[k].textContent.Trim().length>2)
+                    {
+                        objs[j].tid="tid"+int_count;
+                        objs[j].style.cursor="help";
+                        objs[j].onmouseover=function()
+                        {
+                            bbl_style_temp=this.style.border;
+                            this.style.border="2px solid rgb(59, 203, 249)";
+                            bbl_current_obj=objs[j];
+                        }
+                        objs[j].onmouseout=function()
+                        {
+                            this.style.border=bbl_style_temp;
+                        }
+                        objs[j].onclick=function(){
+                            var evt=evt||window.event;
+                            cancelEvent(evt);
+                            cancelPropagation(evt);
+                            //alert(this.textContent);
+                            var arr_child=this.childNodes;
+                            var leng4=arr_child.length;
+                            //首先删除所有已经存在的对话框
+                            for(var l=0;l<bbl_int_count2;l++)
+                            {
+                                delete_div("div_inmod2_"+l);
+                            }
+                            bbl_int_count2=0;
+                            for(var l=0;l<leng4;l++)//对于其中的每一个文本节点，弹出修改对话框
+                            {
+                                if(arr_child[l].nodeName=="#text"&&arr_child[l].textContent.Trim().length>2)
+                                {
+                                    Open_div(this,"div_inmod2_"+bbl_int_count2,240,120,0+bbl_int_count2*250,0);
+                                    var div_inmod2=document.getElementById("div_inmod2_"+bbl_int_count2);//取出新添加的元素
+                                    div_inmod2.ttid=this.getAttribute("tid")?this.getAttribute("tid"):this.tid;//把被选择标签的全局标记交给弹出框
+                                    div_inmod2.tobj=this;
+                                    div_inmod2.textnum=l;//在文本框中记录，这个文本框对应的是标签的第几个子节点
+                                    div_inmod2.innerHTML=document.getElementById("div_mod2").innerHTML;
+                                    con_getElementsByClassName("div_inmod2_content",div_inmod2)[0].innerHTML=arr_child[l].textContent;//填入原有值，考虑标签嵌套问题//#text型标签没有innerhtml属性！！
+                                    bbl_int_count2++;//记下有多少个，后面删除所有对话框时使用
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    function DeleteWindow()
+    {//只删除掉点击关闭的这一个标签
+        var evt=evt||window.event;
+        cancelPropagation(evt);
+        var obj=evt.currentTarget?evt.currentTarget:evt.srcElement;
+        var str_id=obj.parentNode.parentNode.parentNode.id;
+        delete_div(str_id);
+    }
+    //写入修改后的标签值，并写入日志
+    function ChangeValue()
+    {
+        var evt=evt||window.event;
+        cancelPropagation(evt);
+        var obj=evt.currentTarget?evt.currentTarget:evt.srcElement;
+        //document.getElementsByTagName()
+        var div_inmod2=obj.parentNode.parentNode.parentNode;
+        var obj_text=obj.parentNode.parentNode.getElementsByTagName("textarea")[0];//输入的文本框
+        if(obj_text.innerHTML.trim().length<1)
+        {
+            alert("修改后的文本过短");
+        }
+        else {
+            var tobj = div_inmod2.getAttribute("tobj") ? div_inmod2.getAttribute("tobj") : div_inmod2.tobj;//取得该输入框对应的标签
+            var ttid = div_inmod2.getAttribute("tid") ? div_inmod2.getAttribute("tid") : div_inmod2.tid;//
+            var textnum = div_inmod2.getAttribute("textnum") ? div_inmod2.getAttribute("textnum") : div_inmod2.textnum;
+            //写日志
+            var arr_temp = [];
+            arr_temp.push(ttid + "&" + textnum);
+            arr_temp.push(tobj.childNodes[textnum].textContent);
+            bbl_arr_history.push(arr_temp);
+            //改值
+            tobj.childNodes[textnum].textContent = obj_text.innerHTML;
+        }
+    }
+    //根据日志恢复标签内容
+    function ReloadValue()
+    {
+        var evt=evt||window.event;
+        cancelPropagation(evt);
+        var obj=evt.currentTarget?evt.currentTarget:evt.srcElement;
+        var div_inmod2=obj.parentNode.parentNode.parentNode;
+        var tobj=div_inmod2.getAttribute("tobj")?div_inmod2.getAttribute("tobj"):div_inmod2.tobj;//取得该输入框对应的标签
+        var ttid=div_inmod2.getAttribute("tid")?div_inmod2.getAttribute("tid"):div_inmod2.tid;//
+        var textnum=div_inmod2.getAttribute("textnum")?div_inmod2.getAttribute("textnum"):div_inmod2.textnum;
+
+
+        var flag=0;//0表示没有找到，对应的日志记录
+        var leng=bbl_arr_history.length;
+        for(var i=leng-1;i>=0;i--)
+        {
+            var str=ttid+"&"+textnum;
+            if(bbl_arr_history[i][0]==str)//找到新的这一条
+            {
+                tobj.childNodes[textnum].textContent=bbl_arr_history[i][1];
+                bbl_arr_history.splice(i,1);//将日志里的这一条删除
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0)
+        {
+            alert("没有日志记录！");
+        }
+    }
+    //以html格式导出网页
+    function ExportHtml()
+    {
+        DownloadText(MakeDateStr()+document.title,("<!DOCTYPE html><html>"+document.getElementsByTagName("html")[0].innerHTML+"</html>"));
+    }
+</script>
